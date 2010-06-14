@@ -1,0 +1,25 @@
+# == Schema Information
+# Schema version: 20100614120313
+#
+# Table name: topics
+#
+#  id         :integer         not null, primary key
+#  summary    :string(255)
+#  content    :text
+#  user_id    :integer
+#  created_at :datetime
+#  updated_at :datetime
+#  locked     :boolean
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  summary: MyString
+  content: MyText
+  user_id: 1
+
+two:
+  summary: MyString
+  content: MyText
+  user_id: 1

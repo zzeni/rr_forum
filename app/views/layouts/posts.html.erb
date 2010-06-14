@@ -1,0 +1,16 @@
+<% content_for :content do %>
+    <table class="posts">
+      <tr><th colspan="2" class="round_top"><%= h @topic.summary %></th></tr>
+      <%= render :partial => 'post', :locals => { :post => @topic } %>
+    </table>
+
+    <h3><%= @title %></h3>
+
+    <%= yield %>
+
+    <div class="actions">
+      <%= link_to "Back", @topic %>
+    </div>
+<% end %>
+
+<%= render :file => 'layouts/application' %>

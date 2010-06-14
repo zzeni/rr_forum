@@ -1,0 +1,23 @@
+  <tr>
+    <td class="user_info">
+      <%= render :partial => 'users/user_info', :locals => { :user => post.user } %>
+    </td>
+    <td class="content">
+      <%= navigation_buttons(post) %>
+      <div class="clear"></div>
+      <%= RedCloth.new(h post.content).to_html %>
+      <%= render :partial => 'users/signature', :locals => { :user => post.user } %>
+      <hr />
+      <span class="post_info">
+        Posted <%= time_ago_in_words(post.created_at) %> ago.
+        <% if post.created_at != post.updated_at %>
+          <div class="clear"></div>
+          <span class="edited"> Edited <%= time_ago_in_words(post.updated_at) %> ago.</span>
+        <% end %>
+      </span>
+    </td>
+  </tr>
+  <tr class="separator">
+    <td colspan="2"></td>
+  </tr>
+  

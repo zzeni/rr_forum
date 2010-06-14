@@ -1,0 +1,42 @@
+<h2><%= @title %></h2>
+
+<div align="right">
+  <% if signed_in? %>
+    <%= link_to "new topic", new_topic_path, :class => "new_topic_button round" %>
+  <% end %>
+</div>
+
+<%= will_paginate %>
+
+<table class="topics">
+  <tr class="round">
+    <th></th>
+    <th>Summary</th>
+    <th>Replies</th>
+    <th>Created</th>
+  </tr>
+  <% @topics.each do |t| %>
+  <tr>
+    <td><% if t.locked %><%= image_tag("locked.gif", :alt => "topic locked") %><% end %></td>
+    <td class="summary"><%= link_to h(t.summary), topic_url(t) %></td>
+    <td class="replies"><%= t.posts.count %></td>
+    <td class="timestamp"><%= t.created_at %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%= will_paginate %>
+
+<hr />
+
+<% if not signed_in? %>
+  <div class="centered signup">
+    <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+  </div>
+<% end %>
+
+<div align="right">
+  <% if signed_in? %>
+    <%= link_to "new topic", new_topic_path, :class => "new_topic_button round" %>
+  <% end %>
+</div>

@@ -1,0 +1,19 @@
+<h2><%= @title %></h2>
+
+<% form_for(@topic) do |f| %>
+  <%= render :partial => 'fields', :locals => { :f => f } %>
+
+  <% if current_user.admin? %>
+    <div class="actions">
+      <%= f.check_box "locked" %>
+      <%= f.label :locked %><br />
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+  <div class="actions">
+    <%= link_to "Back", @topic %>
+  </div>
+<% end %>

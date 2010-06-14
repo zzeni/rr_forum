@@ -1,0 +1,11 @@
+<div class="user_info">
+  <div class="centered">
+    <%= link_to h(user.name), user_url(user) %>
+    <div class="clear"></div>
+    <%= gravatar_for user %>
+  </div>
+  <div class="clear"></div>
+  joined: <%= user.created_at.to_date %>
+  <div class="clear"></div>
+  posts: <%= user.posts.count %>
+<div>

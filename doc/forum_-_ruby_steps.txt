@@ -1,0 +1,210 @@
+1. install ruby
+2. install gems (or update: gem update --system)
+3. 
+
+(mirror gems repository: http://mirror.rightscale.com)
+
+gem install rails
+gem install sqlite3-ruby
+
+(test tools)
+gem install rspec -v 1.3.0
+gem install rspec-rails -v 1.3.2
+
+( Optional :
+    $ ruby -v
+    1.9.1
+    $ [sudo] gem uninstall test-unit
+    $ [sudo] gem install test-unit -v 1.2.3
+}
+
+gem install autotest-rails -v 4.1.0
+
+vi ~/workspace/.autotest
+( insert:
+    #!/bin/ruby
+    require 'redgreen'
+    require 'autotest/timestamp'
+    
+    module Autotest::GnomeNotify
+    def self.notify title, msg, img
+        system "notify-send '#{title}' '#{msg}' -i #{img} -t 3000"
+    end
+    
+    Autotest.add_hook :ran_command do |at|
+        image_root = "~/.autotest_images"
+        results = [at.results].flatten.join("\n")
+        results.gsub!(/\\e\[\d+m/,'')
+        output = results.slice(/(\d+)\sexamples?,\s(\d+)\sfailures?/)
+        puts output.inspect
+        if output
+        if $~[2].to_i > 0
+            notify "FAIL", "#{output}", "#{image_root}/fail.png"
+        else
+            notify "Pass", "#{output}", "#{image_root}/pass.png"
+        end
+        end
+    end
+    
+    Autotest.add_hook :initialize do |autotest|
+        autotest.add_mapping(/^spec\/integration\/.*_spec\.rb$/) do
+        autotest.files_matching(/^spec\/integration\/.*_spec\.rb$/)
+        end
+    end
+    
+    end
+)
+
+
+gem install factory_girl
+[edit] config/environments/test.rb :
+
+    # Settings specified here will take precedence over those in
+    # config/environment.rb
+    
+    config.gem 'factory_girl'
+
+[create] spec/factories.rb (Listing 7.17)
+
+
+[install] libxslt1-dev libxml2-dev
+
+gem install webrat
+gem install launchy
+(http://www.railstutorial.org/chapters/sign-up#sec:webrat)
+
+gem install faker
+
+(then run
+rake db:populate
+it uses lib/tasks/sample_data.rake)
+
+gem install RedCloth
+
+
+
+rake gems:install - installs the speocified gems in config/environment.rb
+
+
+# 4. Heroku setup - http://www.railstutorial.org/chapters/beginning#sec:1.4.1
+
+1. create an svn repository :
+
+http://www.xp-dev.com/sc/85869
+
+
+2. checkout project:
+
+cd ~/workspace/
+
+svn co http://svn2.xp-dev.com/svn/forum/trunk forum_trunk
+
+
+3. add project files
+
+rails forum
+
+cd forum
+
+svn add *
+
+svn revert public/images/
+
+svn ci -m "[task init] Project just created"
+
+
+4. create a dev branch
+
+cd ~/workspace/
+
+svn cp http://svn2.xp-dev.com/svn/sample_app/trunk http://svn2.xp-dev.com/svn/sample_app/branches/dev -m"[task dev-branch] creating a new branch for development"
+
+svn co http://svn2.xp-dev.com/svn/forum/branches/dev forum
+
+cd forum
+
+----------------
+
+git init
+
+cp ../sample_app/.gitignore ./
+
+git add .
+
+git commit -m"[task init] Iitial commit"
+
+git remote add origin git@github.com:zzeni/sample_app.git
+
+git push origin master
+
+----------------
+
+script/generate controller Pages <pages list>
+
+[Test] script/generate rspec
+[Test] script/generate rspec_controller Pages <main screens list>
+
+script/generate rspec_controller Users new edit show index
+
+script/generate rspec_model Topic summary:string content:text user_id:integer
+script/generate controller Topics new edit show index
+
+script/generate rspec_model Post content:text user_id:integer topic_id:integer
+script/generate controller Posts new edit
+
+
+
+#[Test] rm -rf test/ && rm -rf spec/views && rm -f spec/helpers/pages_helper_spec.rb
+
+
+cp ../.autotest ./
+
+(aoutospec to run autotests)
+
+
+script/generate rspec_model User name:string email:string
+(Note that, in contrast to the plural convention for controller names, model names are singular: a Users controller, but a User model.)
+
+script/generate migration add_email_uniqueness_index
+vi db/migrate/<timestamp>_add_email_uniqueness_index.rb
+(edit: see Listing 6.21)
+
+rake db:migrate
+(list all rake commands: rake -T)
+
+script/plugin install http://repo.pragprog.com/svn/Public/plugins/annotate_models
+rake annotate_models
+
+
+rake db:test:prepare
+(This just ensures that the data model from the development database, db/development.sqlite3, is reflected in the test database, db/test.sqlite3)
+
+======== Active Record ==========
+
+model methods : new, save, create, destroy, find, find_by_<model_attr_name>, first, all
+
+model objects methods: save, reload, update_attributes, errors.full_messages
+
+
+
+
+
+=======================================================================
+TODO:
+=======================================================================
+
+http://github.com/insoshi/insoshi/blob/master/app/controllers/people_controller.rb
+
+http://railsbrain.com/api/rails-2.3.2/doc/index.html?a=C00000783&amp;name=ActiveRecord::Base
+
+http://railsbrain.com/api/rails-2.3.2/doc/index.html?a=M002516&name=error_messages_for
+
+
+
+
+
+
+
+
+
+

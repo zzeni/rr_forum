@@ -1,0 +1,90 @@
+== RR Forum
+
+This is an rails project, developed for the 'Ruby on rails' course in FMI
+
+== Author
+
+Evgenia Manolova
+
+== Installation
+
+Make sure, that you have rails and gem installed on the machine you want to run the application:
+
+ $ gem -v
+ $ rails -v
+
+If not - download and install gem from here: http://rubyforge.org/frs/?group_id=126
+
+and then:
+
+ $ sudo gem install rails
+
+Checkout the application source with svn:
+
+ $ svn co http://svn2.xp-dev.com/svn/rr_forum/trunk forum
+ $ cd forum
+
+or checkout via git from here: http://github.com/zzeni/rr_forum
+
+Install the needed gems
+
+ $ sudo gem install sqlite3-ruby
+ $ sudo gem install faker
+ $ sudo gem install RedCloth
+ $ rake gems:install
+
+Set up database
+
+ $ rake db:migrate
+ $ rake db:populate
+
+Start the forum
+
+ $ ./script/server -d
+
+That's it.
+
+If you want to run the tests, you need to install some more gems:
+
+ $ sudo gem install rspec
+ $ sudo gem install rspec-rails
+ $ sudo gem install factory_girl
+ $ sudo gem install webrat
+ $ sudo gem install launchy
+
+Set up the test database
+
+ $ rake db:test:prepare
+
+And finally - run the tests
+
+ $ spec ./spec
+
+== Gems
+
+-- required gems for the application
+
+  rails
+  sqlite3-ruby
+  faker
+  RedCloth
+
+-- gems, needed for the test module
+
+  rspec
+  rspec-rails
+  factory_girl
+  webrat
+  launchy
+
+== References
+
+http://rubyonrails.org/
+
+http://api.rubyonrails.org/
+
+http://www.railstutorial.org/
+
+http://github.com/thoughtbot/factory_girl
+
+http://www.railstutorial.org/chapters/sign-up#sec:webrat

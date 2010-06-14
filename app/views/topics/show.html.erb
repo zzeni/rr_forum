@@ -1,0 +1,16 @@
+<%= render "sidebar" %>
+
+<table class="posts">
+  <tr><th colspan="2" class="round_top">
+    <%= summary(@topic) %>
+  </th></tr>
+  <%= render :partial => 'posts/post', :locals => { :post => @topic } %>
+
+  <% unless @posts.empty? %>
+    <%= render :partial => 'posts/post', :collection => @posts %>
+    <%= will_paginate @posts %>
+  <% end %>
+
+</table>
+
+<%= render "sidebar" %>

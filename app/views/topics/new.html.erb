@@ -1,0 +1,12 @@
+<h2><%= @title %></h2>
+
+<% form_for(@topic) do |f| %>
+  <%= render :partial => 'fields', :locals => { :f => f } %>
+
+  <div class="actions">
+    <%= f.submit "Create" %>
+  </div>
+  <div class="actions">
+    <%= link_to "Back", topics_path %>
+  </div>
+<% end %>

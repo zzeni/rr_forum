@@ -1,0 +1,17 @@
+<table class="profile">
+  <tr>
+    <td class="main">
+      <h2>
+        <%= gravatar_for @user %>
+        <%= h @user.name %>
+      </h2>
+      <%= render :partial => 'signature', :locals => { :user => @user } %>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= h @user.name %><br />
+      <strong>URL</strong>  <%= link_to user_url(@user), @user %><br />
+      <strong>Topics</strong>  <%= @user.topics.count %><br />
+      <strong>Replies</strong>  <%= @user.posts.count %>
+    </td>
+  </tr>
+</table>

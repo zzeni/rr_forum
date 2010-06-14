@@ -1,0 +1,468 @@
+.container {
+  width: 910px;
+}
+
+body {
+  background: #dde;
+}
+
+#header {
+  padding-top: 20px;
+}
+
+#header img {
+  padding: 1em;
+  background: #fff;
+}
+
+#content {
+  margin-top: 1em;
+  font-size: 120%;
+  padding: 20px;
+  background: #fff;
+}
+
+.clear {
+  clear: both;
+}
+
+.hidden {
+  display: none;
+}
+
+div.spacer {
+  display: inline;
+  padding: 0 3px;
+}
+
+div.centered {
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Links */
+
+a {
+  color: #09c;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #069;
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #069;
+}
+
+/* Footer */
+
+#footer {
+  text-align: center;
+  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#footer .navigation {
+  float: none;
+}
+
+/* Navigation */
+
+.navigation {
+  float: right;
+  background-color: white;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+
+ul.navigation {
+  margin: 0;
+}
+
+.navigation li {
+  list-style-type: none;
+  display: inline-block;
+  padding: 0.2em 0;
+}
+
+.navigation li a {
+  padding: 0 5px;
+  font-weight: bold;
+}
+
+.navigation li a:visited {
+  color: #09c;
+}
+
+.navigation li a:hover {
+  text-decoration: underline;
+}
+
+
+/* Sign up button */
+
+a.signup_button, a.new_topic_button {
+  text-align: center;
+  color: #fff;
+  background: #3399CC;
+  font-size: 1em;
+  padding: 5px 20px;
+}
+
+a.signup_button {
+  font-weight: bold;
+  padding: 15px 30px;
+}
+
+div.signup {
+  padding: 20px;
+}
+
+/* Round corners */
+
+.linux .round {
+  -khtml-border-radius:  10px;
+}
+
+.linux .round_top {
+  -khtml-border-radius:  15px 15px 0 0;
+}
+
+.gecko .round {
+  -moz-border-radius:    10px;
+  -webkit-border-radius: 10px;
+}
+
+.gecko .round_top {
+  -moz-border-radius:    15px 15px 0 0;
+  -webkit-border-radius: 15px 15px 0 0;
+}
+
+.opera10 .round {
+  -border-radius:    10px;
+}
+
+.opera10 .round_top {
+  -border-radius:    15px 15px 0 0;
+}
+
+/*.opera8 div.round, .opera9 div.round, .opera8 ul.round, .opera9 ul.round, .opera8 img.round, .opera9 img.round */
+.opera8 .round, .opera9 .round  {
+  background: transparent url(src/opera/roundbox.svg) !important;
+}
+
+.opera8 .round_top, .opera9 .round_top  {
+  background: transparent url(src/opera/topround.svg) !important;
+}
+
+/*.opera8 .round .signup_button , .opera9 .round .signup_button  {
+  background: transparent url(src/opera/signup.svg) !important;
+}*/
+
+.opera8 .round .sidebar , .opera9 .round .sidebar  {
+  background: transparent url(src/opera/sidebar.svg) !important;
+}
+
+.opera8 .round .signup_button ,
+.opera9 .round .signup_button ,
+.opera8 .round .new_topic_button ,
+.opera9 .round .new_topic_button  {
+  background: transparent url(src/opera/add_new.svg) !important;
+}
+
+.ie .round {
+  background-color: yellow
+}
+.konqueror .round {
+  background-color: blue
+}
+.webkit .round {
+  background-color: black
+}
+
+
+/*Examples:
+
+    * html.gecko div#header { margin: 1em; }
+    * .opera #header { margin: 1.2em; }
+    * .ie .mylink { font-weight: bold; }
+    * .mac.ie .mylink { font-weight: bold; }
+    * .[os].[browser] .mylink { font-weight: bold; } -> without space between .[os] and .[browser]
+
+Available OS Codes [os]:
+
+    * win - Microsoft Windows
+    * linux - Linux (x11 and linux)
+    * mac - Mac OS
+    * freebsd - FreeBSD
+    * ipod - iPod Touch
+    * iphone - iPhone
+    * webtv - WebTV
+    * mobile - J2ME Devices (ex: Opera mini)
+
+Available Browser Codes [browser]:
+
+    * ie - Internet Explorer (All versions)
+    * ie8 - Internet Explorer 8.x
+    * ie7 - Internet Explorer 7.x
+    * ie6 - Internet Explorer 6.x
+    * ie5 - Internet Explorer 5.x
+    * gecko - Mozilla, Firefox (all versions), Camino
+    * ff2 - Firefox 2
+    * ff3 - Firefox 3
+    * ff3_5 - Firefox 3.5 new
+    * opera - Opera (All versions)
+    * opera8 - Opera 8.x
+    * opera9 - Opera 9.x
+    * opera10 - Opera 10.x
+    * konqueror - Konqueror
+    * webkit or safari - Safari, NetNewsWire, OmniWeb, Shiira, Google Chrome
+    * safari3 - Safari 3.x
+    * chrome - Google Chrome
+    * iron - SRWare Iron new
+*/
+
+/* User show page */
+
+table.profile {
+  width: 100%;
+  margin-bottom: 0;
+}
+
+td.main {
+  width: 65%;
+  padding: 1em;
+}
+
+td.sidebar {
+  width: 30%;
+  padding: 1em;
+  vertical-align: top;
+  background: #ffc;
+}
+
+.profile td.sidebar a {
+  font-size: 0.8em;
+}
+
+.profile img.gravatar {
+  border: 1px solid #999;
+  margin-bottom: -15px;
+}
+
+form.edit_user textarea {
+  height: auto;
+  width: auto;
+}
+
+.signature {
+  font-style: italic;
+  color: #993300;
+}
+
+div.field, div.actions {
+  margin-bottom: 10px;
+}
+
+div.fieldWithErrors {
+  padding: 2px;
+/*   display: table; */
+  display: inline;
+}
+
+div.fieldWithErrors label {
+  font-style: italic;
+  color: #900;
+}
+
+
+#errorExplanation {
+  width: 400px;
+  border: 2px solid red;
+/*   padding: 7px; */
+/*   padding-bottom: 12px; */
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation h2 {
+  text-align: left;
+  font-weight: bold;
+  padding: 5px 5px 5px 15px;
+  font-size: 12px;
+  background-color: #c00;
+  color: #fff;
+}
+
+#errorExplanation p {
+  color: #333;
+  margin-bottom: 0;
+  padding: 0 5px 5px;
+}
+
+#errorExplanation ul li {
+  font-size: 12px;
+  list-style: square;
+}
+
+ul.users {
+  margin-top: 1em;
+}
+
+.users li {
+  list-style: none;
+}
+
+/* Topics */
+
+table.topics {
+  padding-top: 20px;
+}
+
+table.topics th {
+  padding: 5px;
+  font-weight: bold;
+  color: #fff;
+  background: #3399CC;
+}
+
+table.topics td.summary{
+  width: 70%;
+}
+
+table.topics td.timestamp{
+  font-size: 0.8em;
+}
+
+.post_info {
+  font-size: 0.7em;
+}
+
+.edited {
+  color: #993300;
+}
+
+form.new_topic #topic_summary, form.new_topic textarea {
+  width: 80%;
+}
+
+table.topic_slidebar {
+  width: 100%;
+}
+
+
+/* Posts */
+
+h2.post {
+  margin-bottom: 0;
+}
+
+table.posts hr {
+  margin: 20px 0 5px;
+  background: #366;
+  height: 1px;
+}
+
+table.posts {
+  margin-top: 20px;
+}
+
+table.posts th {
+  padding-top: 10px;
+  padding-left: 25px;
+}
+
+table.posts th, table.posts tr.post_info {
+   background-color: #cfc;
+}
+
+table.posts tr.post_info td {
+  padding-top: 0px;
+  padding-left: 15px;
+}
+
+table.posts tr td.content {
+  background-color: #efe;
+  padding: 5px 17px 17px 17px;
+  vertical-align: top;
+}
+
+td.user_info {
+  background-color: #dfc;
+  vertical-align: top;
+}
+
+div.user_info {
+  padding: 10px;
+  width: 100px;
+  font-size: 0.7em;
+}
+
+.user_info span {
+  text-align: center;
+}
+
+.user_info img {
+  padding-bottom: 5px;
+}
+
+.user_info a {
+  text-decoration: none;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+form.new_post, form.edit_post {
+  margin-bottom: 2em;
+}
+
+form.new_post textarea, form.edit_post textarea {
+  height: 6em;
+  margin-bottom: 0;
+  width: 90%;
+}
+
+form.new_post .field, form.edit_post .field {
+  background: #dfc;
+  padding: 10px;
+}
+
+div.post_navigation {
+  float: right;
+  padding: 5px 0;
+}
+
+div.topic_sidebar {
+  padding: 25px 5px;
+}
+
+div#go_back_link {
+  float: left;
+}
+
+div#new_reply_link {
+  float: right;
+}
+
+div.summary {
+  float: left;
+}
+
+div.locked {
+  float: right;
+}
+
+span.green {
+  color: green;
+}
+
+span.red {
+  color: red;
+}
+
+span.black {
+  color: #000;
+}
