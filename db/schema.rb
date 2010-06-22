@@ -9,7 +9,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100614120313) do
+ActiveRecord::Schema.define(:version => 20100617182328) do
+
+  create_table "messages", :force => true do |t|
+    t.integer  "sender"
+    t.integer  "recepient"
+    t.string   "summary"
+    t.text     "message"
+    t.boolean  "read",       :default => false
+    t.boolean  "replied",    :default => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["recepient"], :name => "index_messages_on_recepient"
+  add_index "messages", ["sender"], :name => "index_messages_on_sender"
 
   create_table "posts", :force => true do |t|
     t.text     "content"
@@ -43,6 +57,7 @@ ActiveRecord::Schema.define(:version => 20100614120313) do
     t.string   "remember_token"
     t.boolean  "admin",              :default => false
     t.string   "signature",          :default => ""
+    t.string   "contacts",           :default => ""
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

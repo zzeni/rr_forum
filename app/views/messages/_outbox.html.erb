@@ -1,0 +1,23 @@
+<table id="outbox">
+  <tr>
+    <th class="index"><%= image_tag("mail/outbox.png", :alt => "outbox") %></th>
+    <th colspan="3">Outbox</th>
+  </tr>
+  <% current_user.messages.each_with_index do |m, i| %>
+    <tr class="<%= (i%2 == 0)? "odd" : "even" %>">
+      <td class="index">
+        <a href="#" onclick="toggle_content(<%= m.id %>); return false;">
+          <%= image_tag("arrow_up.png",   :id => "show_#{m.id}", :alt => "show message") %>
+          <%= image_tag("arrow_down.png", :id => "hide_#{m.id}", :alt => "hide message", :class => "hidden") %>
+        </a>
+      </td>
+      <td class="summary"><%= m.summary %></td>
+      <td class="recepient">to <%= link_to User.find(m.recepient).name, user_url(m.recepient) %></td>
+      <td class="time"><%= time_ago_in_words(m.created_at) %> ago</td>
+    </tr>
+    <tr id="content_of_<%= m.id %>" class="hidden content">
+      <td class="index"></td>
+      <td class="sent_message" colspan="3"><%= to_text m.message %></td>
+    </tr>
+  <% end %>
+</table>

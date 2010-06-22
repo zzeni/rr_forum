@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100614120313
+# Schema version: 20100617182328
 #
 # Table name: users
 #
@@ -13,6 +13,7 @@
 #  remember_token     :string(255)
 #  admin              :boolean
 #  signature          :string(255)     default("")
+#  contacts           :string(255)     default("")
 #
 
 require 'spec_helper'

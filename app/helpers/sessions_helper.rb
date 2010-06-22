@@ -55,6 +55,10 @@ module SessionsHelper
     session[:return_to] = request.request_uri
   end
 
+  def store_referer
+    session[:return_to] = request.referer
+  end
+
   def redirect_back_or(default)
     redirect_to(session[:return_to] || default)
     clear_return_to

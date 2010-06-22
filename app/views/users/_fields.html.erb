@@ -16,6 +16,12 @@
     <%= f.password_field :password_confirmation, :value => "" %>
   </div>
   <div class="field<% unless signed_in? %> hidden<% end %>">
+    <%= f.label :contacts %><br />
+    <p class="info">list your contacts here</p>
+    <%= f.text_area :contacts, :rows => 2, :cols => 50, :default => "" %>
+  </div>
+  <div class="field<% unless signed_in? %> hidden<% end %>">
     <%= f.label :signature %><br />
+    <p class="info">this text will be added to all your future posts</p>
     <%= f.text_area :signature, :rows => 2, :cols => 50, :default => "" %>
   </div>

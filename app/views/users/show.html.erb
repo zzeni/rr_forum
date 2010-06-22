@@ -5,13 +5,31 @@
         <%= gravatar_for @user %>
         <%= h @user.name %>
       </h2>
+      Member since <%= @user.created_at.to_date %>
+
       <%= render :partial => 'signature', :locals => { :user => @user } %>
     </td>
     <td class="sidebar round">
       <strong>Name</strong> <%= h @user.name %><br />
       <strong>URL</strong>  <%= link_to user_url(@user), @user %><br />
       <strong>Topics</strong>  <%= @user.topics.count %><br />
-      <strong>Replies</strong>  <%= @user.posts.count %>
+      <strong>Replies</strong>  <%= @user.posts.count %><br />
+      <br />
+      <strong>Contacts</strong>
+      <p class="user_contacts">
+          <%= to_text @user.contacts %>
+      </p>
     </td>
   </tr>
 </table>
+
+<div class="mail">
+  <% if !current_user?(@user) %>
+    <%= link_to image_tag("mail/write.gif", :alt => "send a personal message"), new_message_path(:user => @user) %> Send a message
+  <% else %>
+
+  <%= render :partial => '/messages/inbox' %>
+  <%= render :partial => '/messages/outbox' %>
+
+  <% end %>
+</div>

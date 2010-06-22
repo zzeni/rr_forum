@@ -1,0 +1,31 @@
+# == Schema Information
+# Schema version: 20100617182328
+#
+# Table name: messages
+#
+#  id         :integer         not null, primary key
+#  sender     :integer
+#  recepient  :integer
+#  summary    :string(255)
+#  message    :text
+#  read       :boolean
+#  replied    :boolean
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  from: 1
+  to: 1
+  subject: MyString
+  body: MyText
+  read: false
+
+two:
+  from: 1
+  to: 1
+  subject: MyString
+  body: MyText
+  read: false

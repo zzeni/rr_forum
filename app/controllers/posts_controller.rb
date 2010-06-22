@@ -7,6 +7,11 @@ class PostsController < ApplicationController
     @title = "Add new reply"
     @topic = Topic.find(params[:topic])
     @post = Post.new()
+    if params[:quoted]
+      quote = (params[:quoted] == "self")? @topic : @topic.posts.find(params[:quoted])
+      title = h(quote.user.name + " wrote:")
+      @post.content = "{:quote title=#{title}}\n#{quote.content}\n{quote:}\n"
+    end
   end
 
   def create

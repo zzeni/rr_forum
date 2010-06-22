@@ -5,7 +5,7 @@
     <td class="content">
       <%= navigation_buttons(post) %>
       <div class="clear"></div>
-      <%= RedCloth.new(h post.content).to_html %>
+      <%= integrate_qutes RedCloth.new(h post.content).to_html %>
       <%= render :partial => 'users/signature', :locals => { :user => post.user } %>
       <hr />
       <span class="post_info">

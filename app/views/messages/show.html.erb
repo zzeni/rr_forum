@@ -1,0 +1,33 @@
+<h2>Read message from <%= @sender.name %></h2>
+
+<table class="message">
+  <tr>
+    <th colspan="2" class="round_top">
+      <div class="summary">
+        <%= h @message.summary %>
+      </div>
+      <div class="message_navigation">
+        <%= link_to image_tag("mail/simple/reply.png", :alt => "Click to reply"), new_message_path(:user => @sender, :reply_to => @message) %>
+      </div>
+    </th>
+  </tr>
+  <tr>
+    <td class="user_info">
+      <%= render :partial => 'users/user_info', :locals => { :user => @sender } %>
+    </td>
+    <td class="content">
+      <%= to_text @message.message %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2" class="msg_info">
+      <span class="post_info">Sent: <%= @message.created_at %></span>
+    </td>
+  </tr>
+</table>
+
+<div class="action centered">
+  <%= button_link "Go back", user_url(current_user) %>
+  <%= button_link "Reply", new_message_path(:user => @sender, :reply_to => @message) %>
+</div>
+

@@ -1,6 +1,6 @@
 <div class="topic_sidebar">
-  <div id="go_back_link"><%= link_to "<< back to forum", topics_path %></div>
+  <div id="go_back_link" class="button_link"><%= link_to "<< back to forum", topics_path %></div>
   <% unless @topic.locked? %>
-    <div id="new_reply_link"><%= link_to "new reply", new_post_path(:topic => @topic) %></div>
+    <div id="new_reply_link" class="button_link"><%= link_to "new reply", new_post_path(:topic => @topic) %></div>
   <% end %>
 </div>

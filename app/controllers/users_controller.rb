@@ -39,6 +39,9 @@ class UsersController < ApplicationController
   def update
     # @user = User.find(params[:id]) # should be commented since the before filter 'correct_user' already assigns user by the id param
 
+    # strip trailing whitespaces
+    params.values.map! {|v| v.to_s.strip!}
+
     if (params[:user][:password].nil? or params[:user][:password].blank?)
       # don't update the password if field was submitted blank
       params[:user].reject! { |k, v| k =~ /password/ }

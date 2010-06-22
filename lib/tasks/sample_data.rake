@@ -13,6 +13,13 @@ namespace :db do
                          :password_confirmation => "foobar")
     admin.toggle!(:admin)
 
+    admin.attributes = {
+      :contacts   => "icq: 262252514",
+      :signature  => "A pessimist is a man who has been compelled to live with an optimist.\r\n                -- Elbert Hubbard"
+    }
+
+    admin.save
+
     # create normal users
     99.times do |n|
       name  = Faker::Name.name
@@ -23,6 +30,11 @@ namespace :db do
                    :password => password,
                    :password_confirmation => password)
     end
+
+    User.create!(:name => "zeni",
+                  :email => "emanolova@gmail.com",
+                  :password => "123456",
+                  :password_confirmation => "123456")
 
     User.all(:limit => 10).each do |user|
         user.topics.create!(

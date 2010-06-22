@@ -1,4 +1,4 @@
-== RR Forum
+== Just a Forum
 
 This is an rails project, developed for the 'Ruby on rails' course in FMI
 
@@ -6,32 +6,31 @@ This is an rails project, developed for the 'Ruby on rails' course in FMI
 
 Evgenia Manolova
 
-== Installation
+== Instalation
 
-Make sure, that you have rails and gem installed on the machine you want to run the application:
+Make sure, that you have rails and ruby gems installed on the mashine you want to run the application:
 
  $ gem -v
  $ rails -v
 
-If not - download and install gem from here: http://rubyforge.org/frs/?group_id=126
+If not - download and install rubygems from here: http://rubyforge.org/frs/?group_id=126
 
 and then:
 
  $ sudo gem install rails
 
-Checkout the application source with svn:
+Checkout the application sourse:
+
 
  $ svn co http://svn2.xp-dev.com/svn/rr_forum/trunk forum
  $ cd forum
-
-or checkout via git from here: http://github.com/zzeni/rr_forum
 
 Install the needed gems
 
  $ sudo gem install sqlite3-ruby
  $ sudo gem install faker
  $ sudo gem install RedCloth
- $ rake gems:install
+ $ sudo rake gems:install
 
 Set up database
 
@@ -44,7 +43,13 @@ Start the forum
 
 That's it.
 
-If you want to run the tests, you need to install some more gems:
+Go to http://localhost:3000/ in your browser and try the RR Forum :)
+
+== Running tests
+
+If you wanr to run the tests, you need to install some more gems:
+
+ $ cd $RR_FORUM_HOME # (cd to the forum home directory)
 
  $ sudo gem install rspec
  $ sudo gem install rspec-rails
@@ -88,3 +93,4 @@ http://www.railstutorial.org/
 http://github.com/thoughtbot/factory_girl
 
 http://www.railstutorial.org/chapters/sign-up#sec:webrat
+

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20100614120313
+# Schema version: 20100617182328
 #
 # Table name: users
 #
@@ -13,16 +13,26 @@
 #  remember_token     :string(255)
 #  admin              :boolean
 #  signature          :string(255)     default("")
+#  contacts           :string(255)     default("")
 #
 
 require 'digest'
 
 class User < ActiveRecord::Base
   attr_accessor :password
-  attr_accessible :name, :email, :encrypted_password, :password, :password_confirmation, :signature, :salt
+  attr_accessible :name, :email, :encrypted_password, :password, :password_confirmation, :signature, :contacts, :salt
 
-  has_many :posts, :dependent => :destroy
-  has_many :topics, :dependent => :destroy
+  has_many :posts,                             :dependent => :destroy
+  has_many :topics,                            :dependent => :destroy
+  has_many :messages, :foreign_key => :sender, :dependent => :destroy
+  has_many :incoming, :foreign_key => :recepient, :class_name => "Message"
+
+#   
+#   has_many :incoming, :through => :messages,   :source    => :recepient
+# #
+#   has_many :incoming_messages,     :foreign_key => "recepient",
+#                                    :class_name => "Message",
+#                                    :dependent => :destroy
 
   before_save :encrypt_password
 
@@ -32,6 +42,7 @@ class User < ActiveRecord::Base
   validates_presence_of :name,  :email
   validates_length_of   :name,  :maximum => 50
   validates_length_of   :signature, :maximum => 250
+  validates_length_of   :contacts,  :maximum => 250
   validates_format_of   :name,  :with    => NameRegex
   validates_format_of   :email, :with    => EmailRegex
 

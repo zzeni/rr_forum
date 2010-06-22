@@ -1,0 +1,22 @@
+<table id="inbox">
+  <tr>
+    <th class="index"><%= image_tag("mail/mail.gif", :alt => "inbox") %></th>
+    <th colspan="3">Inbox</th>
+  </tr>
+  <% current_user.incoming.each_with_index do |m, i| %>
+    <tr class="<%= (i%2 == 0)? "odd" : "even" %>">
+      <td class="index">
+        <% if m.replied? %>
+          <%= image_tag "mail/simple/replied.png"%>
+        <% elsif m.read? %>
+          <%= image_tag "mail/simple/read.png"%>
+        <% else %>
+          <%= image_tag "mail/simple/new.png"%>
+        <% end %>
+      </td>
+      <td class="summary"><%= link_to m.summary, message_url(m), :class => (m.read?)? "" : "unread" %></td>
+      <td class="sender">by <%= link_to User.find(m.sender).name, user_url(m.sender) %></td>
+      <td class="time"><%= time_ago_in_words(m.created_at) %> ago</td>
+    </tr>
+  <% end %>
+</table>

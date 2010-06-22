@@ -14,6 +14,7 @@ module ApplicationHelper
     image_tag("forum.png", :alt => "Sample App", :class => "round", :id => "main_logo")
   end
 
+  # summary helper can be used for all topics, sections anf forums
   def summary(this)
     summary = content_tag(:div, this.summary, :class => "summary")
     if this.locked?
@@ -38,5 +39,13 @@ module ApplicationHelper
     end
   end
 
+  def button_link(text, address)
+    link = link_to text, address, :class=>"button_link"
+    content_tag(:div, link, :class => "button_link")
+  end
+
+  def to_text (str)
+    (h str).gsub(/\n/, '&nbsp;<br />').gsub('  ', ' &nbsp;')
+  end
 
 end

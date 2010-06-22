@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :topics
   map.resources :posts,    :only => [:new, :create, :edit, :update, :destroy]
   map.resources :sessions, :only => [:new, :create, :destroy]
+  map.resources :messages, :only => [:new, :create, :show, :destroy]
 
   map.signin  '/signin',  :controller => 'sessions', :action => 'new'
   map.signout '/signout', :controller => 'sessions', :action => 'destroy'

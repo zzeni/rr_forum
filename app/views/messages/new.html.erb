@@ -1,0 +1,23 @@
+<h2><%= @title %></h2>
+
+<% form_for(@message) do |f| %>
+  <%= f.error_messages %>
+  <%= f.hidden_field :recepient, :value => @recepient.id %>
+  <% unless @reply_to.nil? %>
+    <%= f.hidden_field :reply_to, :value => @reply_to.id %>
+  <% end %>
+  <div class="field">
+    <%= f.label :summary %><br />
+    <%= f.text_field :summary, :value => (@reply_to.nil?)? "" : "Re: " + @reply_to.summary %>
+  </div>
+  <div class="field">
+    <%= f.label :message %><br />
+    <%= f.text_area :message %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Send" %>
+  </div>
+  <div class="actions">
+    <%= link_to "Back", request.referer %>
+  </div>
+<% end %>
